@@ -20,9 +20,17 @@ export default function TodoList() {
             <li key={id}>
                 <input 
                     type='checkbox'
-                    onClick={() => dispatch(complete(todolist[id].id))}
+                    className='checkbox'
+                    checked={todo.complete}
+                    onClick={() => dispatch(complete(todo.id))}
                 />
-                <div>
+                <div 
+                    style={
+                        todo.complete
+                        ? {textDecoration: "line-through", color: "#aaaaaa"}
+                        : {textDecoration: "none"}
+                    }
+                >
                     {todo.content}
                 </div>
                 <button

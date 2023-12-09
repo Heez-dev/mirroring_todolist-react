@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { add } from '../features/todoSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default function InputTodo() {
 
     const dispatch = useDispatch()
+
+    const inputRef = useRef(null)
 
     const [buttonState, setButtonState] = useState(false);
 
@@ -12,6 +16,8 @@ export default function InputTodo() {
         id: 0,
         content: "",
     })
+
+    const plusIcon = <FontAwesomeIcon icon={faPlus} style={{fontSize: "20px", color: "white"}}/>
 
     const handleInput = () => {
         setButtonState(!buttonState)
@@ -33,6 +39,15 @@ export default function InputTodo() {
         })
         setButtonState(!buttonState)
     }
+
+    useEffect(() => {
+        if (buttonState) {
+            // Apply autoFocus after the transition (300ms delay in this case)
+            setTimeout(() => {
+                inputRef.current.focus();
+            }, 300);
+        }
+    }, [buttonState]);
     
     return (
         <div className='inputTodo'>
@@ -47,30 +62,29 @@ export default function InputTodo() {
                     }
                 }
             >
-                {
-                    buttonState
-                    ? <div>
-                        <input type='text' value={todolist.content} onChange={handleContent} autoFocus/>
-                        <input type='submit' value="추가"/>
-                    </div>
-                    : null
-                }
+                <div className={`inputContent ${buttonState? '' : 'down'}`}>
+                    <input 
+                        ref={inputRef}
+                        type='text' 
+                        value={todolist.content} 
+                        onChange={handleContent} 
+                        autoFocus
+                    />
+                    <button type='submit'>
+                        <p>추가</p>
+                    </button>
+                </div>
+                
                 <div>
-                    {
-                        buttonState
-                        ? <button
-                            type='button'
-                            onClick={handleButton}
-                        >
-                            x
-                        </button>
-                        : <button
-                            type='button'
-                            onClick={handleInput}
-                        >
-                            +
-                        </button>
-                    }
+                    <button
+                        type='button'
+                        className={`showInputBtn ${buttonState ? 'rotate' : ''}`}
+                        onClick={
+                            buttonState? handleButton : handleInput
+                        }
+                    >
+                        {plusIcon}
+                    </button>
                 </div>
             </form>
         </div>
