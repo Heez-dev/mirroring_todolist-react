@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import InputTodo from './components/InputTodo';
+import TodoList from './components/TodoList';
 
 function App() {
+  const today = new Date();
+
+  const date = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+
+  const formattedtoday = `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일 ${date[today.getDay()]}`
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        {formattedtoday}
+      </div>
+      <TodoList/>
+      <InputTodo/>
     </div>
   );
 }
