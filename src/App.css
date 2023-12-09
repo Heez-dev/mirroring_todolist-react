@@ -1,38 +1,53 @@
+@font-face {
+  font-family: 'SUITE-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
 .App {
   text-align: center;
+  width: 400px;
+  height: 90vh;
+  margin: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border-radius: 20px;
+  font-family: 'SUITE-Regular';
+  background-color: aliceblue;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.today, .todoList, .inputTodo {
+  width: 350px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.today {
+  text-align: left;
+  width: 350px;
+  height: 7vh;
+  margin: auto;
+  padding: 3vh 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.today p:first-child {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.todoList {
+  height: 60vh;
+  padding: 1.5vh 0;
+  overflow: scroll;
+}
+
+.todoList li {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  margin-bottom: 1.5vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputTodo {
+  height: 8vh;
+  padding: 3vh 0;
 }

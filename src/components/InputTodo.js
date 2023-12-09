@@ -6,10 +6,20 @@ export default function InputTodo() {
 
     const dispatch = useDispatch()
 
+    const [buttonState, setButtonState] = useState(false);
+
     const [todolist, setTodolist] = useState({
         id: 0,
         content: "",
     })
+
+    const handleInput = () => {
+        setButtonState(!buttonState)
+    }
+
+    const handleButton = () => {
+        setButtonState(!buttonState)
+    }
 
     const handleContent = (e) => {
         setTodolist({
@@ -21,10 +31,11 @@ export default function InputTodo() {
         setTodolist({
             content: ""
         })
+        setButtonState(!buttonState)
     }
     
     return (
-        <div>
+        <div className='inputTodo'>
             <form
                 onSubmit={
                     (e) => {
@@ -36,8 +47,31 @@ export default function InputTodo() {
                     }
                 }
             >
-                <input type='text' value={todolist.content} onChange={handleContent}/>
-                <input type='submit' value="+"/>
+                {
+                    buttonState
+                    ? <div>
+                        <input type='text' value={todolist.content} onChange={handleContent} autoFocus/>
+                        <input type='submit' value="추가"/>
+                    </div>
+                    : null
+                }
+                <div>
+                    {
+                        buttonState
+                        ? <button
+                            type='button'
+                            onClick={handleButton}
+                        >
+                            x
+                        </button>
+                        : <button
+                            type='button'
+                            onClick={handleInput}
+                        >
+                            +
+                        </button>
+                    }
+                </div>
             </form>
         </div>
     )

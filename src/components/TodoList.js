@@ -35,7 +35,7 @@ export default function TodoList() {
         : null
 
     return (
-        <div>
+        <div className='todoList'>
             {showTodolist}
         </div>
     )
