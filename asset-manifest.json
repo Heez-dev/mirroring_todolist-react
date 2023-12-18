@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/2023_redux_toolkit_todolist/static/css/main.371bd5c8.css",
+    "main.js": "/2023_redux_toolkit_todolist/static/js/main.466d05f4.js",
+    "static/js/787.f398e004.chunk.js": "/2023_redux_toolkit_todolist/static/js/787.f398e004.chunk.js",
+    "static/media/bg.jpg": "/2023_redux_toolkit_todolist/static/media/bg.c245d1da5f295f125e75.jpg",
+    "index.html": "/2023_redux_toolkit_todolist/index.html",
+    "main.371bd5c8.css.map": "/2023_redux_toolkit_todolist/static/css/main.371bd5c8.css.map",
+    "main.466d05f4.js.map": "/2023_redux_toolkit_todolist/static/js/main.466d05f4.js.map",
+    "787.f398e004.chunk.js.map": "/2023_redux_toolkit_todolist/static/js/787.f398e004.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.371bd5c8.css",
+    "static/js/main.466d05f4.js"
+  ]
+}
